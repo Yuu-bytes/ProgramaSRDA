@@ -33,14 +33,9 @@ namespace ProgramaSRDAMVC.Controllers
             return RedirectToAction("Adicionar");
         }
 
-        public ActionResult Lista(){
-            ViewBag.lista = new DataBase().Listar();
-            return View();
-        }
-
         public ActionResult Excluir(Guid id){
             new DataBase().Excluir(id);
-            return RedirectToAction("Lista");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Editar(Guid id)
@@ -52,31 +47,14 @@ namespace ProgramaSRDAMVC.Controllers
         public ActionResult Editar(EntradaDTO entradas)
         {
             new DataBase().Alterar(entradas);
-            return RedirectToAction("Lista");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var obj = new List<EntradaDTO>();
 
-            System.IO.StreamReader reader;
-            string caminho = "D:\\_Programação\\ProgramaSRDAMVC\\BancoDeDados\\entradas.txt";
-            reader = System.IO.File.OpenText(caminho);
-
-            while (reader.EndOfStream != true)
-            {
-                string linha = reader.ReadLine();
-                String[] separados = linha.Split(";");
-                obj.Add(new EntradaDTO()
-                {
-                    Data = Convert.ToDateTime(separados[0]),
-                    Hora = separados[1],
-                    Comentario = separados[2]
-                });
-            }
-            reader.Close();
-            return View(obj);
+            return View(new DataBase().Listar());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
