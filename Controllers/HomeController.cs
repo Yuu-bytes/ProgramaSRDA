@@ -66,6 +66,7 @@ namespace ProgramaSRDAMVC.Controllers
 
             while (reader.EndOfStream != true)
             {
+                // teste
                 string linha = reader.ReadLine();
                 String[] separados = linha.Split(";");
                 obj.Add(new EntradaDTO()
