@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Adicionar entrada";
+}
+
+<div class="ml-lg-5">
+<h1>Adicionar entrada</h1>
+<form method="post" id="formulario" action="Adicionar">
+    <div class="form-row">
+        <div class="form-group w-50 pr-1 pl-1">
+        <label for="inputData">Data</label><br>
+        <input type="date" class="form-control" name="data" id="inputData" required>
+        </div>
+        <div class="form-group w-50 pl-1 pr-1">
+        <label for="inputHora">Hora</label><br>
+        <input type="time" class="form-control" name="hora" id="inputHora" required>
+        </div>
+        </div>
+        <div class="form-group">
+        <label for="textareaComentario">Comentário</label><br>
+        <textarea class="form-control" name="comentario" rows="6" id="textareaComentario"></textarea>
+    <input class="btn btn-primary mt-2" type="submit" value="Enviar">
+    </div>
+</form>
+</div>

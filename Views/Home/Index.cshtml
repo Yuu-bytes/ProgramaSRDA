@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ProgramaSRDAMVC.Models.EntradaDTO>
+
+@{
+    ViewData["Title"] = "HOME";
+}
+<div class="ml-lg-5">
+<h1>Lista de entradas</h1>
+<a href="@Url.Action("Adicionar")">Adicionar entrada</a>
+<div class="table-responsive table-striped table-hover">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    Data
+                </th>
+                <th scope="col">
+                    Hora
+                </th>
+                <th scope="col" class="col-4">
+                    Comentário
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                       @item.Data
+                    </td>
+                    <td>
+                        @item.Hora
+                    </td>
+                    <td class="col-4">
+                        @item.Comentario
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+</div>

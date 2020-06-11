@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+            Data
+            </td>
+            <td>
+                Hora
+            </td>
+            <td>
+                Comentário
+            </td>
+        </tr>
+        @foreach (var item in ViewBag.lista)
+        {
+            <tr>
+                <td>
+                    @item.Data
+                </td>
+                <td>
+                    @item.Hora
+                </td>
+                <td>
+                    @item.Comentario
+                </td>
+                <td>
+                    <a href="/Home/Excluir?id=@item.Id">Excluir</a> |
+                    <a href="/Home/Editar?id=@item.Id">Editar</a>
+                </td>
+            </tr>
+        }
+    </thead>
+</table>
