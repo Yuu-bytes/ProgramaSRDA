@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using LiteDatabase.Services;
+using System.Collections.Concurrent;
+using System.Linq;
+using System.Collections;
 
 namespace ProgramaSRDAMVC.Controllers
 {
@@ -18,6 +21,7 @@ namespace ProgramaSRDAMVC.Controllers
         {
             _logger = logger;
         }
+
 
         [HttpGet]
         public ActionResult Adicionar()
@@ -53,8 +57,7 @@ namespace ProgramaSRDAMVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-
-            return View(new DataBase().Listar());
+            return View(new DataBase().Listar().OrderByDescending(x => x.Data).ToList());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

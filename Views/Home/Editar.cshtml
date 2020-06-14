@@ -4,26 +4,24 @@
     ViewData["Title"] = "Editar";
 }
 
-<h1>Editar</h1>
-
-<div class="ml-lg-5">
-    <h1>Adicionar entrada</h1>
-    <form method="post" id="formulario" action="Editar">
-        <input type="hidden" name="Id" value="@Model.Id" />
-        <div class="form-row">
-            <div class="form-group w-50 pr-1 pl-1">
-                <label for="inputData">Data</label><br>
-                <input type="date" class="form-control" name="Data" id="inputData" value="@Model.Data" required>
+    <div class="ml-lg-5">
+        <h1>Editar</h1>
+        <form method="post" id="formulario" action="Editar">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-row">
+                <div class="form-group w-50 pr-1 pl-1">
+                    <label for="inputData">Data</label><br>
+                    <input type="date" class="form-control" name="Data" id="inputData" value="@Model.Data" required>
+                </div>
+                <div class="form-group w-50 pl-1 pr-1">
+                    <label for="inputHora">Hora</label><br>
+                    <input type="time" class="form-control" name="Hora" id="inputHora" value="@Model.Hora" required>
+                </div>
             </div>
-            <div class="form-group w-50 pl-1 pr-1">
-                <label for="inputHora">Hora</label><br>
-                <input type="time" class="form-control" name="Hora" id="inputHora" value="@Model.Hora" required>
+            <div class="form-group">
+                <label for="textareaComentario">Comentário</label><br>
+                <textarea class="form-control" name="Comentario" rows="6" id="textareaComentario">@Model.Comentario</textarea>
+                <input class="btn btn-primary mt-2" type="submit" value="Enviar">
             </div>
-        </div>
-        <div class="form-group">
-            <label for="textareaComentario">Comentário</label><br>
-            <textarea class="form-control" name="Comentario" rows="6" id="textareaComentario">@Model.Comentario</textarea>
-            <input class="btn btn-primary mt-2" type="submit" value="Enviar">
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
