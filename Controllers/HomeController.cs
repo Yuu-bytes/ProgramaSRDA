@@ -33,7 +33,6 @@ namespace ProgramaSRDAMVC.Controllers
         public ActionResult Adicionar(EntradaDTO entrada)
         {
             new DataBase().Inserir(entrada);
-            TempData["Msg"] = "Entrada adicionada com sucesso";
             return RedirectToAction("Adicionar");
         }
 
